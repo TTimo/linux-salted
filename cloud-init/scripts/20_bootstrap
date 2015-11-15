@@ -1,0 +1,39 @@
+#!/bin/bash -ex
+# ad-hoc script to handoff the rest of the configuration to Saltstack
+
+# without the ability to use deployment keys in a secure way
+# (e.g. give read access to only this code repository),
+# we have to run this interactively with ssh-agent forwarding
+# NOTE: could retrieve the username for the connection from ssh-add -l
+
+REPO_DIR=$HOME/linux-desktop
+REPO_URL=git@github.com:TTimo/linux-desktop.git
+
+apt-get install -y git
+
+if [ -d "$REPO_DIR" ]; then
+  cd "$REPO_DIR"
+  git pull --all
+else
+  git clone $REPO_URL $REPO_DIR
+fi
+
+# /srv/salt and /srv/pillar must exist and symlink to the salt and pillar directories in our code
+[ -h /srv/salt ] || ln -s "$REPO_DIR"/salt /srv/salt
+[ -h /srv/pillar ] || ln -s "$REPO_DIR"/pillar /srv/pillar
+
+# configure for masterless operation
+cat <<EOF >/etc/salt/minion
+id: master
+file_client: local
+EOF
+
+cat <<EOF >/etc/salt/master
+worker_threads: 1
+enable_gpu_grains: False
+EOF
+
+# seems new salt setup is dropping a default 'minion_id' which we are not ready for
+rm -f /etc/salt/minion_id
+
+salt-call --local state.highstate

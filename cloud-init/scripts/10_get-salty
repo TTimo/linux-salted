@@ -1,0 +1,8 @@
+#!/bin/bash -ex
+
+SCRIPT_SOURCE=https://bootstrap.saltstack.com
+INSTALL_VERSION="git 2015.8"
+
+wget -O install_salt.sh -L $SCRIPT_SOURCE
+BS_PIP_ALLOWED=1 sh install_salt.sh -X -M $INSTALL_VERSION
+

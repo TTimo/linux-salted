@@ -1,0 +1,2 @@
+google-chrome:
+  version: stable

@@ -19,6 +19,7 @@ fi
 # /srv/salt and /srv/pillar must exist and symlink to the salt and pillar directories in our code
 [ -h /srv/salt ] || ln -s "$REPO_DIR"/salt /srv/salt
 [ -h /srv/pillar ] || ln -s "$REPO_DIR"/pillar /srv/pillar
+[ -h /srv/formulas ] || ln -s "$REPO_DIR"/formulas /srv/formulas
 
 # configure for masterless operation
 cat <<EOF >/etc/salt/minion

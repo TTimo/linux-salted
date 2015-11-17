@@ -6,8 +6,7 @@ base:
     #- mosh
     - fish
     # https://github.com/ahdinosaur-os/google-chrome-formula
-    # TODO: git clone to /srv/formula, or find a better way than the symlink
+    # TODO: git clone to /srv/formula as a depend, or find a better way than the symlink
     - google-chrome
-    # https://github.com/gspe/dropbox-formula
-    # failing as well - https://github.com/gspe/dropbox-formula/issues/1
+    - graphics-drivers
     - dropbox

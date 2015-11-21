@@ -1,11 +1,8 @@
 #!/bin/bash -ex
 # ad-hoc script to handoff the rest of the configuration to Saltstack
 
-# as long as it's a private repo, this needs to be run interactively with an ssh key loaded:
-# run with sudo -E ./20_bootstrap
-
-REPO_DIR=$HOME/linux-desktop
-REPO_URL=git@github.com:TTimo/linux-desktop.git
+REPO_DIR=$HOME/linux-salted
+REPO_URL=https://github.com/TTimo/linux-salted.git
 
 apt-get install -y git
 

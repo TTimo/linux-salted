@@ -9,7 +9,7 @@ dropbox-package:
 
 /tmp/dropbox_2015.10.28_amd64.deb:
   file.managed:
-    - source: salt://dropbox_2015.10.28_amd64.deb
+    - source: salt://dropbox/dropbox_2015.10.28_amd64.deb
 
 dropbox-daemon:
   cmd.run:

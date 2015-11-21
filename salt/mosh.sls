@@ -9,7 +9,7 @@
 
 mosh_mobile_shell:
   pkgrepo.managed:
-    - ppa: keithw/mosh
+    - ppa: keithw/mosh-dev
   pkg.installed:
     - name: mosh
 

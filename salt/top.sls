@@ -5,8 +5,10 @@ base:
     # package has a dependency problem on ubuntu 15 apparently
     #- mosh
     - fish
-    # https://github.com/ahdinosaur-os/google-chrome-formula
-    # TODO: git clone to /srv/formula as a depend, or find a better way than the symlink
+    # git clone https://github.com/ahdinosaur-os/google-chrome-formula to /srv/formula, and make the symlink work
     - google-chrome
     - graphics-drivers
     - dropbox
+    - lightdm
+    - xmonad
+ 

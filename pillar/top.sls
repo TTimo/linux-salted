@@ -1,3 +1,4 @@
 base:
   '*':
+    - general
     - google-chrome

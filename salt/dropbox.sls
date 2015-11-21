@@ -15,3 +15,8 @@ dropbox-daemon:
   cmd.run:
     - name: "cd ~ && wget -O - \"https://www.dropbox.com/download?plat=lnx.x86_64\" | tar xzf -"
     - unless: ls ~/.dropbox-dist
+
+/usr/local/bin/dropbox.py:
+  file.managed:
+    - source: salt://dropbox/dropbox.py
+    - mode: 755

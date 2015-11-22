@@ -22,3 +22,4 @@ general-pkg-installed:
       - unzip
       - sysstat
       - irssi
+      - virt-what

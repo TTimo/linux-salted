@@ -1,0 +1,2 @@
+#!/bin/bash -ex
+salt-call --local state.highstate

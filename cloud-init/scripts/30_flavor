@@ -1,0 +1,3 @@
+#!/bin/bash -ex
+
+echo flavor: server >> /etc/salt/master

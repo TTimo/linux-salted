@@ -2,4 +2,5 @@
 
 # I really only use the cloud-init scripts for server setups anyway
 echo flavor: server >> /srv/pillar/flavor.sls
+echo default-user: ubuntu >> /srv/pillar/flavor.sls
 

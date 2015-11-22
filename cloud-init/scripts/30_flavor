@@ -1,3 +1,5 @@
 #!/bin/bash -ex
 
-echo flavor: server >> /etc/salt/master
+# I really only use the cloud-init scripts for server setups anyway
+echo flavor: server >> /srv/pillar/flavor.sls
+

@@ -1,0 +1,12 @@
+#!/bin/bash -ex
+
+FORMULAS_DIR=`readlink -f /srv/formulas`
+if [ ! -d $FORMULAS_DIR ] ; then
+   mkdir $FORMULAS_DIR
+fi
+
+cd /srv/formulas
+
+if [ ! -d google-chrome-formula ] ; then
+   git clone https://github.com/ahdinosaur-os/google-chrome-formula
+fi

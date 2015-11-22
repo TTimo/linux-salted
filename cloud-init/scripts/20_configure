@@ -22,6 +22,8 @@ fi
 [ -h /srv/pillar ] || ln -s "$REPO_DIR"/pillar /srv/pillar
 [ -h /srv/formulas ] || ln -s "$REPO_DIR"/formulas /srv/formulas
 
+[ -d /var/log/salt ] || mkdir /var/log/salt
+
 # configure for masterless operation
 cat <<EOF >/etc/salt/minion
 id: master

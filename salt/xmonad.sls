@@ -25,3 +25,12 @@ xmonad-packages:
     - mode: 644
     - makedirs: True
 
+{{ salt['user.info'](salt['pillar.get']('default-user')).get('home') }}/.Xdefaults:
+  file.managed:
+    - source:
+      - salt://xmonad/.Xdefaults
+    - user: {{ user }}
+    - group: {{ user }}
+    - mode: 644
+    - makedirs: True
+      

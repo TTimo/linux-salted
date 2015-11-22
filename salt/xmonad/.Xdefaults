@@ -1,0 +1,9 @@
+URxvt*loginShell:true
+URxvt*scrollBar:true
+URxvt*scrollBar_right:true
+URxvt*scrollBar_floating:false
+URxvt*scrollstyle:plain
+URxvt*secondaryScroll:true
+URxvt*saveLines:32767
+URxvt*font: xft:Monospace:pixelsize=12
+URxvt*perl-ext-common: default,matcher,-option-popup,-selection-popup,-realine,tabbed

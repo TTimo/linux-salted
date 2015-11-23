@@ -25,6 +25,7 @@ xmonad-packages:
     - mode: 644
     - makedirs: True
 
+# for rxvt-unicode
 {{ salt['user.info'](salt['pillar.get']('default-user')).get('home') }}/.Xdefaults:
   file.managed:
     - source:

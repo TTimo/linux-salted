@@ -1,2 +1,1 @@
 flavor: desktop
-	

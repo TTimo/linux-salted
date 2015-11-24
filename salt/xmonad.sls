@@ -4,6 +4,7 @@ xmonad-packages:
       - xmonad
       - xmobar
       - rxvt-unicode
+      - fonts-inconsolata
 
 {% set user = salt['pillar.get']('default-user') %}
 
@@ -29,7 +30,7 @@ xmonad-packages:
 {{ salt['user.info'](salt['pillar.get']('default-user')).get('home') }}/.Xdefaults:
   file.managed:
     - source:
-      - salt://xmonad/.Xdefaults
+      - salt://xmonad/_Xdefaults
     - user: {{ user }}
     - group: {{ user }}
     - mode: 644

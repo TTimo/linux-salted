@@ -11,6 +11,7 @@ base:
     - dropbox
     - lightdm
     - xmonad
+    - grub
 {% endif %}
 {% if salt.file.directory_exists('/srv/formulas/linux-salted-private/irssi') %}
     - irssi

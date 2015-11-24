@@ -5,5 +5,6 @@ URxvt*scrollBar_floating:false
 URxvt*scrollstyle:plain
 URxvt*secondaryScroll:true
 URxvt*saveLines:32767
-URxvt*font: xft:Monospace:pixelsize=12
+URxvt*font: xft:Inconsolata
+URxvt.letterSpace: -1
 URxvt*perl-ext-common: default,matcher,-option-popup,-selection-popup,-realine,tabbed

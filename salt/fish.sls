@@ -16,3 +16,5 @@ fish_shell:
     - append_if_not_found: True
     - require:
       - pkg: fish
+
+# TODO: make it the default shell for root and default user with chsh

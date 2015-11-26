@@ -12,6 +12,7 @@ base:
     - lightdm
     - xmonad
     - grub
+    - steam
 {% endif %}
 {% if salt.file.directory_exists('/srv/formulas/linux-salted-private/irssi') %}
     - irssi

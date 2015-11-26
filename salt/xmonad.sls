@@ -35,4 +35,3 @@ xmonad-packages:
     - group: {{ user }}
     - mode: 644
     - makedirs: True
-      

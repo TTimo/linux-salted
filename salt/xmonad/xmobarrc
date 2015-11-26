@@ -7,7 +7,8 @@ Config {
                 Run Memory ["-t","Mem: <usedratio>%"] 10,
                 Run Swap [] 10,
                 Run Date "%a %b %_d %l:%M" "date" 10,
-                Run Network "eth0" [] 10,
+                Run Network "wls1" [] 10,
+--                Run Network "enp60s0" [] 10,
 		Run Com "/usr/local/bin/dropbox.py" ["status"] "dbox" 10,
                 Run StdinReader
                 ]

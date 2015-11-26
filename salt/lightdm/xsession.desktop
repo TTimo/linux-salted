@@ -1,0 +1,6 @@
+[Desktop Entry]
+Name=XSession
+Comment=User .xsession script
+Exec=/etc/X11/Xsession
+Icon=xmonad.png
+Type=XSession

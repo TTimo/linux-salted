@@ -13,6 +13,7 @@ base:
     - xmonad
     - grub
     - steam
+    - gyazo
 {% endif %}
 {% if salt.file.directory_exists('/srv/formulas/linux-salted-private/irssi') %}
     - irssi

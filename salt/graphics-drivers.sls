@@ -6,6 +6,10 @@ graphics-drivers:
       - nvidia-358
       - nvidia-358-dev
       - nvidia-modprobe
-      - bumblebee-nvidia
       - mesa-utils
       - phoronix-test-suite
+
+graphics-drivers-removed:
+  pkg.removed:
+    - pkgs:
+      - xserver-xorg-video-nouveau

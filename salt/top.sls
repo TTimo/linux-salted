@@ -5,6 +5,7 @@ base:
     - mosh
     - fish
 {% if pillar['flavor'] != 'server' %}
+    - general-desktop
     # git clone https://github.com/ahdinosaur-os/google-chrome-formula to /srv/formula
     - google-chrome
     - graphics-drivers

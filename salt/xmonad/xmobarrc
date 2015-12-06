@@ -6,7 +6,7 @@ Config {
                 Run Cpu ["-L","3","-H","50","--normal","green","--high","red"] 10,
                 Run Memory ["-t","Mem: <usedratio>%"] 10,
 --                Run Swap [] 10,
-                Run Date "%a %b %_d %l:%M" "date" 10,
+                Run Date "%a %b %_d %H:%M" "date" 10,
                 Run Network "wls1" [] 10,
                 Run Network "enp60s0" [] 10,
 		Run Com "/usr/local/bin/dropbox.py" ["status"] "dbox" 10,
@@ -14,5 +14,5 @@ Config {
                 ]
        , sepChar = "%"
        , alignSep = "}{"
-       , template = "%StdinReader% }{ %wls1% | %dbox% | %cpu% | %memory% <fc=#ee9a00>%date%</fc> | %KADS%"
+       , template = "%StdinReader% }{ %enp60s0% %wls1% | %dbox% | %cpu% | %memory% <fc=#ee9a00>%date%</fc> | %KADS%"
        }

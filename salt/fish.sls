@@ -17,4 +17,13 @@ fish_shell:
     - require:
       - pkg: fish
 
-# TODO: make it the default shell for root and default user with chsh
+# make it the default shell, YOLO
+"chsh -s /usr/bin/fish root":
+  cmd.run:
+    - onlyif: "grep root /etc/password | grep fish" 
+
+{% set user = salt['pillar.get']('default-user') %}
+
+"chsh -s /usr/bin/fish {{ user }}":
+  cmd.run:
+    - onlyif: "grep {{ user }} /etc/password | grep fish"

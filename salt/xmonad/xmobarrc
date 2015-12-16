@@ -16,4 +16,5 @@ Config {
        , sepChar = "%"
        , alignSep = "}{"
        , template = "%StdinReader% }{ %tun0% %enp60s0% %wls1% | %dbox% | %cpu% | %memory% <fc=#ee9a00>%date%</fc> | %KADS%"
+			 , allDesktops = True
        }

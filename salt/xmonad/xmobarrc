@@ -1,4 +1,5 @@
 Config {
+			 allDesktops = True, -- TODO: doesn't work for some reason?
        font = "xft:Inconsolata:pixelsize=12",
        commands = [
                 -- Addison
@@ -10,11 +11,10 @@ Config {
                 Run Network "wls1" [] 10,
                 Run Network "enp60s0" [] 10,
                 Run Network "tun0" [] 10,
-		Run Com "/usr/local/bin/dropbox.py" ["status"] "dbox" 10,
+                Run Com "/usr/local/bin/dropbox.py" ["status"] "dbox" 10,
                 Run StdinReader
-                ]
-       , sepChar = "%"
-       , alignSep = "}{"
-       , template = "%StdinReader% }{ %tun0% %enp60s0% %wls1% | %dbox% | %cpu% | %memory% <fc=#ee9a00>%date%</fc> | %KADS%"
-			 , allDesktops = True
+                ],
+       sepChar = "%",
+       alignSep = "}{",
+       template = "%StdinReader% }{ %tun0% %enp60s0% %wls1% | %dbox% | %cpu% | %memory% <fc=#ee9a00>%date%</fc> | %KADS%"
        }

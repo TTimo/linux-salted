@@ -11,7 +11,8 @@ import XMonad.Util.EZConfig(additionalKeysP)
 import System.IO
 
 main = do
-  xmproc <- spawnPipe "xmobar /home/timo/.xmonad/xmobarrc"
+  -- TODO: use two spawnPipe, make this more haskellish
+  xmproc <- spawnPipe "bash -c 'tee >(xmobar -x 1 /home/timo/.xmonad/xmobarrc) | xmobar -x 0 /home/timo/.xmonad/xmobarrc'"
   xmonad $ ewmh $ defaultConfig {
     modMask = mod4Mask, 
     terminal = "urxvt",

@@ -1,2 +1,2 @@
 google-chrome:
-  version: stable
+  version: beta

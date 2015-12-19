@@ -1,6 +1,5 @@
 Config {
-			 allDesktops = True, -- TODO: doesn't work for some reason?
-       font = "xft:Inconsolata:pixelsize=12",
+       font = "xft:Ubuntu Mono:pixelsize=11",
        commands = [
                 -- Addison
                 Run Weather "KADS" ["-t"," <tempF>F","-L","64","-H","77","--normal","green","--high","red","--low","lightblue"] 36000,

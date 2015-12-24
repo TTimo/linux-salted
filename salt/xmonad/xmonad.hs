@@ -4,6 +4,7 @@ import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.ManageHelpers
 import XMonad.Hooks.EwmhDesktops
 import XMonad.Actions.GroupNavigation
+import XMonad.Actions.CycleRecentWS
 import XMonad.Layout.NoBorders
 import XMonad.Layout.Gaps
 import XMonad.Util.Run(spawnPipe)
@@ -24,4 +25,7 @@ main = do
                         } >> historyHook
   } `additionalKeysP` myKeys
 
+-- FIXME: this only flips between the last WindowSet and the current one
+-- I may be after cycleWindowSets instead?
+-- http://xmonad.org/xmonad-docs/xmonad-contrib/XMonad-Actions-CycleRecentWS.html
 myKeys = [ ("M-x", nextMatch History (return True)) ]

@@ -16,6 +16,7 @@ base:
     - steam
     - gyazo
     - ptrace
+    - synergy
 {% endif %}
 {% if salt.file.directory_exists('/srv/formulas/linux-salted-private') %}
     - private/irssi

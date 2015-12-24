@@ -17,9 +17,10 @@ base:
     - gyazo
     - ptrace
 {% endif %}
-{% if salt.file.directory_exists('/srv/formulas/linux-salted-private/irssi') %}
-    - irssi
+{% if salt.file.directory_exists('/srv/formulas/linux-salted-private') %}
+    - private/irssi
+    - private/vpn
 {% endif %}
-{% if salt.file.directory_exists('/srv/formulas/steamrt-formula/steamrt' ) %}
+{% if salt.file.directory_exists('/srv/formulas/steamrt-formula/steamrt') %}
     - steamrt
 {% endif %}

@@ -7,8 +7,9 @@ xmonad-packages:
       - fonts-inconsolata
 
 {% set user = salt['pillar.get']('default-user') %}
+{% set home = salt['user.info'](user).get('home') %}
 
-{{ salt['user.info'](user).get('home') }}/.xmonad/xmobarrc:
+{{ home }}/.xmonad/xmobarrc:
   file.managed:
     - source:
       - salt://xmonad/xmobarrc
@@ -17,7 +18,7 @@ xmonad-packages:
     - mode: 644
     - makedirs: True
 
-{{ salt['user.info'](salt['pillar.get']('default-user')).get('home') }}/.xmonad/xmonad.hs:
+{{ home }}/.xmonad/xmonad.hs:
   file.managed:
     - source:
       - salt://xmonad/xmonad.hs
@@ -27,7 +28,8 @@ xmonad-packages:
     - makedirs: True
 
 # for rxvt-unicode
-{{ salt['user.info'](salt['pillar.get']('default-user')).get('home') }}/.Xdefaults:
+# TODO: fix the color scheme a bit, some of the colors are unreadable
+{{ home }}/.Xdefaults:
   file.managed:
     - source:
       - salt://xmonad/_Xdefaults

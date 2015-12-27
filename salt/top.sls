@@ -25,3 +25,6 @@ base:
 {% if salt.file.directory_exists('/srv/formulas/steamrt-formula/steamrt') %}
     - steamrt
 {% endif %}
+{% if pillar['cloud-enabled'] %}
+    - cloud
+{% endif %}

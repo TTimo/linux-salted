@@ -7,3 +7,7 @@ base:
 {% else %}
     - flavor-default
 {% endif %}
+  'master':
+{% if salt.file.file_exists('/srv/pillar/ec2.sls') %}
+    - ec2
+{% endif %}

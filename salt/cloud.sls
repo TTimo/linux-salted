@@ -29,3 +29,21 @@ winexe-package:
   file.managed:
     - source: salt://cloud/winexe_1.00.1-1_amd64.deb
 
+# configure providers and profiles for EC2
+# see https://docs.saltstack.com/en/latest/topics/cloud/aws.html
+
+/etc/salt/cloud:
+  file.managed:
+    - source: salt://cloud/cloud.template
+    - user: root
+    - group: root
+    - mode: 644
+    - template: jinja
+
+/etc/salt/cloud.profiles:
+  file.managed:
+    - source: salt://cloud/cloud.profiles.template
+    - user: root
+    - group: root
+    - mode: 644
+    - template: jinja

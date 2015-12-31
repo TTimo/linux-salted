@@ -1,0 +1,14 @@
+ec2_ubuntu_micro:
+  provider: ec2-ttimo
+  size: t2.micro
+  # Ubuntu Server 14.04 LTS (HVM), SSD Volume Type
+  image: ami-d05e75b8
+  # this launches in the VPC with the default security group
+  subnetid: {{ salt['pillar.get']('ec2:subnet') }}
+
+ec2_windows:
+  provider: ec2-ttimo
+  size: m3.large
+  # Microsoft Windows Server 2012 Base
+  image: ami-a3135ac9
+  subnetid: {{ salt['pillar.get']('ec2:subnet') }}

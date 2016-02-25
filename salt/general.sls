@@ -2,6 +2,7 @@ general-pkg-installed:
   pkg.installed:
     - pkgs:
       - aptitude
+      - apt-file
       - python-software-properties
       - python-pip
       - tmux
@@ -15,3 +16,4 @@ general-pkg-installed:
       - sysstat
       - irssi
       - virt-what
+      - flip

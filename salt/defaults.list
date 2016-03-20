@@ -1,0 +1,7 @@
+text/html=google-chrome-beta.desktop
+text/xml=google-chrome-beta.desktop
+application/xhtml_xml=google-chrome-beta.desktop
+image/webp=google-chrome-beta.desktop
+x-scheme-handler/http=google-chrome-beta.desktop
+x-scheme-handler/https=google-chrome-beta.desktop
+x-scheme-handler/ftp=google-chrome-beta.desktop

@@ -6,7 +6,7 @@ base:
     - fish
 {% if pillar['flavor'] != 'server' %}
     - general-desktop
-    # git clone https://github.com/ahdinosaur-os/google-chrome-formula to /srv/formula
+    # git clone git@github.com:TTimo/google-chrome-formula.git to /srv/formula
     - google-chrome
     - graphics-drivers
     - dropbox

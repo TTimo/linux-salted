@@ -24,3 +24,6 @@
 
 # TODO: add the path to fish (the SDK installer took care of bash)
 # additional edits in /usr/share/fish/config.fish ?
+# set PATH ~/google-cloud/sdk/bin $PATH
+# - add a blockreplace here
+# - fixup blockreplace in fish.sls

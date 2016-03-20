@@ -4,6 +4,7 @@
   file.managed:
     - source: salt://gyazo/gyazo.sh
     - mode: 755
+    - unless: dpkg -s gyazo
     
 gyazo-package:
   cmd.run:

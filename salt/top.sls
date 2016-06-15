@@ -21,6 +21,9 @@ base:
     - synergy
     - google-cloud-sdk
 {% endif %}
+{% if pillar['flavor'] == 'server' %}
+    - pyopenssl
+{% endif %}
 {% if salt.file.directory_exists('/srv/formulas/linux-salted-private') %}
     - private/irssi
     - private/vpn

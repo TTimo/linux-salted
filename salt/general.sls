@@ -4,7 +4,6 @@ general-pkg-installed:
       - aptitude
       - apt-file
       - python-software-properties
-      - python-pip
       - tmux
       - htop
       - iotop
@@ -17,3 +16,11 @@ general-pkg-installed:
       - irssi
       - virt-what
       - flip
+
+# Don't use pip from package manager, it's critically outdated on too many distros
+# http://stackoverflow.com/questions/27711184/why-is-pip-raising-an-assertionerror-on-pip-freeze
+# I also ran into this while switching: https://github.com/saltstack/salt/issues/33163
+general-pkg-removed:
+  pkg.removed:
+    - pkgs:
+      - python-pip

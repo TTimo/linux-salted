@@ -35,3 +35,8 @@ base:
 {% if pillar['cloud-enabled'] %}
     - cloud
 {% endif %}
+{% if salt.file.directory_exists('/srv/formulas/docker-formula/docker') %}
+    # git clone https://github.com/saltstack-formulas/docker-formula.git
+    # NOTE: this requires an edit to have /srv/formulas/docker-formula in file_roots
+    - docker
+{% endif %}

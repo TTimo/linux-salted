@@ -1,4 +1,4 @@
-# salt complained about python-openssl being too old, install latest via pip (> 0.14)
+# salt complained about python-openssl being too old, install via pip
 
 apt-pyopenssl-removed:
   pkg.removed:
@@ -13,5 +13,4 @@ apt-pyopenssl-support:
 
 pyopenssl:
   pip.installed
-
 

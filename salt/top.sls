@@ -20,14 +20,18 @@ base:
     - ptrace
     - synergy
     - google-cloud-sdk
-{% endif %}
-{% if pillar['flavor'] == 'server' %}
+{% else %}
+#    - pip
     - pyopenssl
+    - discourse
 {% endif %}
+
+# private .. e.g. not public :-)
 {% if salt.file.directory_exists('/srv/formulas/linux-salted-private') %}
     - private/irssi
     - private/vpn
 {% endif %}
+
 {% if salt.file.directory_exists('/srv/formulas/steamrt-formula/steamrt') %}
     # git clone git@github.com:TTimo/steamrt-formula.git
     - steamrt

@@ -11,10 +11,11 @@ synergy-build-packages:
       - cmake
       - libcurl4-gnutls-dev
       - libxtst-dev
+      - libssl-dev
 
 {% if not salt.file.file_exists('/usr/local/bin/synergyc') %}
       
-https://github.com/synergy/synergy.git:
+https://github.com/symless/synergy.git:
   git.latest:
     - target: {{ home }}/synergy
     - rev: v1.7.5-stable

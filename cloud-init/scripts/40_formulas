@@ -2,11 +2,15 @@
 
 FORMULAS_DIR=`readlink -f /srv/formulas`
 if [ ! -d $FORMULAS_DIR ] ; then
-   mkdir $FORMULAS_DIR
+  mkdir $FORMULAS_DIR
 fi
 
 cd /srv/formulas
 
 if [ ! -d google-chrome-formula ] ; then
-   git clone https://github.com/ahdinosaur-os/google-chrome-formula
+  git clone https://github.com/TTimo/google-chrome-formula.git
+fi
+
+if [ ! -d steamrt-formula ] ; then
+  git clone https://github.com/TTimo/steamrt-formula   
 fi

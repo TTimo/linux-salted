@@ -12,5 +12,6 @@ general-desktop-pkg-installed:
       - keychain
       - ssh-askpass
       - texlive
+      - texlive-latex-extra
 
 

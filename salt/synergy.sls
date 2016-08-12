@@ -18,7 +18,7 @@ synergy-build-packages:
 https://github.com/symless/synergy.git:
   git.latest:
     - target: {{ home }}/synergy
-    - rev: v1.7.5-stable
+    - rev: v1.8.2-stable
     - user: {{ user }}
 
 sh -c "mkdir gmock-1.6.0 ; cd gmock-1.6.0 && unzip -o ../gmock-1.6.0.zip":

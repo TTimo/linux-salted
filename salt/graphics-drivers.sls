@@ -3,8 +3,8 @@ graphics-drivers:
     - ppa: graphics-drivers/ppa
   pkg.installed:
     - pkgs:
-      - nvidia-364
-      - nvidia-364-dev
+      - nvidia-367
+      - nvidia-367-dev
       - nvidia-modprobe
       - mesa-utils
       - phoronix-test-suite

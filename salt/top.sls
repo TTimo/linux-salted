@@ -20,6 +20,7 @@ base:
     - ptrace
     - synergy
     - google-cloud-sdk
+    - lyx
 {% else %}
 #    - pip
     - pyopenssl

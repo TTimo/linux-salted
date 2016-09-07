@@ -13,5 +13,6 @@ general-desktop-pkg-installed:
       - ssh-askpass
       - texlive
       - texlive-latex-extra
-
+      - lyx
+      
 

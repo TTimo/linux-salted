@@ -8,6 +8,7 @@ general-pkg-installed:
       - htop
       - iotop
       - iptraf
+      - perf-tools-unstable
       - git
       - subversion
       - vim

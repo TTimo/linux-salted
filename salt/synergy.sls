@@ -18,7 +18,8 @@ synergy-build-packages:
 https://github.com/symless/synergy.git:
   git.latest:
     - target: {{ home }}/synergy
-    - rev: v1.8.2-stable
+    - rev: v1.8.4-stable
+    - force_reset: True
     - user: {{ user }}
 
 sh -c "mkdir gmock-1.6.0 ; cd gmock-1.6.0 && unzip -o ../gmock-1.6.0.zip":
@@ -53,7 +54,7 @@ make:
 
 {% endif %}
 
-# see https://github.com/synergy/synergy/issues/4626
+# see https://github.com/symless/synergy/issues/4626
 /home/timo/.synergy/SSL/Fingerprints/TrustedServers.txt:
   file.managed:
     - source:

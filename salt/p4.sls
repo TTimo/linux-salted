@@ -14,5 +14,5 @@
     - cwd: /opt
 
 /usr/local/bin/p4v:
-  cmd.run:
-    - name: "ln -s /opt/p4v-2015.2.1458499/bin/p4v /usr/local/bin/p4v"
+  file.symlink:
+    - target: /opt/p4v-2015.2.1458499/bin/p4v

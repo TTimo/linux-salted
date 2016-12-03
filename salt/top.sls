@@ -21,7 +21,8 @@ base:
     - synergy
     - google-cloud-sdk
     - lyx
-    - p4     
+    - p4
+    - ssh
 {% else %}
     - pyopenssl
     - discourse

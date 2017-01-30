@@ -25,7 +25,6 @@ base:
     - ssh
 {% else %}
     - pyopenssl
-    - discourse
 {% endif %}
 
 # private .. e.g. not public :-)

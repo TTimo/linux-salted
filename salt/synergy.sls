@@ -2,6 +2,8 @@
 # https://twitter.com/TTimo/status/679680010228125697
 # synergyc --enable-crypto <host>
 
+# See https://wiki.archlinux.org/index.php/synergy
+
 {% set user = salt['pillar.get']('default-user') %}
 {% set home = salt['user.info'](user).get('home') %}
 
@@ -18,7 +20,7 @@ synergy-build-packages:
 https://github.com/symless/synergy.git:
   git.latest:
     - target: {{ home }}/synergy
-    - rev: v1.8.4-stable
+    - rev: v1.8.8-stable
     - force_reset: True
     - user: {{ user }}
 
@@ -45,12 +47,6 @@ make:
 /usr/local/bin/synergyc:
   file.copy:
     - source: {{ home }}/synergy/bin/synergyc
-
-{{ home }}/.synergy/plugins/libns.so:
-  file.copy:
-    - source: {{ home }}/synergy/bin/plugins/libns.so
-    - makedirs: True
-    - user: {{ user }}
 
 {% endif %}
 

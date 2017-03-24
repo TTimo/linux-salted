@@ -3,7 +3,7 @@ linux-salted
 
 I use this to quickly configure a GNU/Linux system with the software I generally use and the configuration I like.
 
-The setup currently understands laptop (desktop) configuration and cloud VMs (Ubuntu 14.x to 16.x).
+The setup currently understands laptop (desktop) configuration and cloud VMs (Ubuntu 16.x).
 
 main features:
 --------------

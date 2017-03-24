@@ -10,7 +10,7 @@ base:
     # git clone git@github.com:TTimo/google-chrome-formula.git to /srv/formula
     - google-chrome
     - xdg-open
-    - graphics-drivers
+#    - graphics-drivers
     - dropbox
     - lightdm
     - xmonad

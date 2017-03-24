@@ -8,11 +8,11 @@
   file.managed:
     - source: salt://p4/p4v.tgz
 
-/opt/p4v-2015.2.1458499:
+/opt/p4v-2017.1.1491634:
   cmd.run:
     - name: "tar xvzf /tmp/p4v.tgz"
     - cwd: /opt
 
 /usr/local/bin/p4v:
   file.symlink:
-    - target: /opt/p4v-2015.2.1458499/bin/p4v
+    - target: /opt/p4v-2017.1.1491634/bin/p4v

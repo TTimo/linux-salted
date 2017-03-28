@@ -5,6 +5,7 @@ base:
     - mosh
     - fish
     - mono
+    - ipv6
 {% if pillar['flavor'] != 'server' %}
     - general-desktop
     # git clone git@github.com:TTimo/google-chrome-formula.git to /srv/formula

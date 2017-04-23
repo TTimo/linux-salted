@@ -26,6 +26,7 @@ base:
     - ssh
 {% else %}
     - pyopenssl
+    - swappiness
 {% endif %}
 
 # private .. e.g. not public :-)

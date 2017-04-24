@@ -1,5 +1,5 @@
 providers:
-  ec2-ttimo:
+  ec2-linux:
     minion:
       master: {{ salt['pillar.get']('ec2:master') }}
     # master is on ec2, launching in the private VPS
@@ -10,7 +10,19 @@ providers:
     keyname: salt-cloud-us-east
     ssh_username: ubuntu
     driver: ec2
-    win_installer: /srv/salt/cloud/Salt-Minion-2015.8.3-AMD64-Setup.exe
+  
+  ec2-win:
+    minion:
+      master: {{ salt['pillar.get']('ec2:master') }}
+    # master is on ec2, launching in the private VPS
+    ssh_interface: private_ips
+    id: {{ salt['pillar.get']('ec2:id') }}
+    key: '{{ salt['pillar.get']('ec2:key') }}'
+    private_key: /etc/salt/aws-salt-cloud-us-east.pem
+    keyname: salt-cloud-us-east
+    ssh_username: ubuntu
+    driver: ec2
+    win_installer: /srv/salt/cloud/Salt-Minion-2016.3.6-AMD64-Setup.exe
     win_username: Administrator
     win_password: auto
     smb_port: 445

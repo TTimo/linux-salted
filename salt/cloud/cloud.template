@@ -26,5 +26,8 @@ providers:
     win_username: Administrator
     win_password: auto
     smb_port: 445
+    # See https://github.com/saltstack/salt/issues/34783
+    # Need the patch, and extra manual changes, see my comments
     use_winrm: True
+    winrm_verify_ssl: False
     userdata_file: /srv/salt/cloud/windows-firewall.ps1

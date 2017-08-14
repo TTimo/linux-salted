@@ -22,16 +22,18 @@ ChocoCygwin:
   chocolatey.installed:
     - name: cygwin
 
-# not sure if necessary, comes with the python install
-# but fails to install the scons package?
-ChocoPip:
-  module.run:
-    - name: chocolatey.install_python
-    - m_name: pip
+# trying to use chocolatey.install_python fails (setup.py for scons too hold, uses options that pip isn't comfortable with)
+# trying to use saltstack's pip facilities implies python3, not supported in scons
+# NOTE: should extend this to check if already installed
+install_scons:
+  cmd.run:
+    - name: "C:\\Python27\\Scripts\\pip.exe install --egg scons"
 
-# this fails I think:
-# actually, it seems to attempt installing scons against python3 .. where did python3 come from??
-scons:
-  pip.installed:
-    - name: scons
-    - use_wheel: True
+ChocoSVN:
+  chocolatey.installed:
+    - name: svn
+
+ChocoZip:
+  module.run:
+    - name: chocolatey.install_cygwin
+    - m_name: zip

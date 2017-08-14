@@ -2,22 +2,36 @@ ChocolateyBoostrap:
   module.run:
     - name: chocolatey.bootstrap
 
-# not working? despite chocolatey bootstrapped?
-#ChocoGit:
-#  chocolatey.installed:
-#    - name: git
-
 ChocoGit:
-  module.run:
-    - name: chocolatey.install
-    - m_name: git
+  chocolatey.installed:
+    - name: git
 
 ChocoPython:
-  module.run:
-    - name: chocolatey.install
-    - m_name: python2
+  chocolatey.installed:
+    - name: python2
 
 ChocoMSVC:
+  chocolatey.installed:
+    - name: visualstudio2015community
+
+ChoConemu:
+  chocolatey.installed:
+    - name: conemu
+
+ChocoCygwin:
+  chocolatey.installed:
+    - name: cygwin
+
+# not sure if necessary, comes with the python install
+# but fails to install the scons package?
+ChocoPip:
   module.run:
-    - name: chocolatey.install
-    - m_name: visualstudio2015community
+    - name: chocolatey.install_python
+    - m_name: pip
+
+# this fails I think:
+# actually, it seems to attempt installing scons against python3 .. where did python3 come from??
+scons:
+  pip.installed:
+    - name: scons
+    - use_wheel: True

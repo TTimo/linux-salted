@@ -1,14 +1,21 @@
-ec2_ubuntu_micro:
-  provider: ec2-ttimo
-  size: t2.micro
-  # Ubuntu Server 14.04 LTS (HVM), SSD Volume Type
-  image: ami-d05e75b8
+ec2_ubuntu:
+  provider: ec2-linux
+  size: m3.large
+  # see https://cloud-images.ubuntu.com/locator/ec2/
+  # us-east-1 Ubuntu Yakkety 16.10 hvm:instance-store
+  image: ami-0151c517
   # this launches in the VPC with the default security group
   subnetid: {{ salt['pillar.get']('ec2:subnet') }}
 
 ec2_windows:
-  provider: ec2-ttimo
+  provider: ec2-win
   size: m3.large
-  # Microsoft Windows Server 2012 Base
-  image: ami-a3135ac9
+  # Windows_Server-2012-R2_RTM-English-64Bit-Base-2017.03.15
+  image: ami-11e84107
+  # Windows_Server-2012-R2_RTM-English-64Bit-Core-2017.03.15
+  # image: ami-ef359bf9
+  block_device_mappings:
+    - DeviceName: /dev/sda1
+      Ebs.VolumeSize: 50
   subnetid: {{ salt['pillar.get']('ec2:subnet') }}
+

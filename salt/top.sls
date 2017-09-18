@@ -1,5 +1,6 @@
 base:
-  '*':
+  'os_family:Debian':
+    - match: grain
     - general
     - emacs
     - mosh
@@ -26,6 +27,7 @@ base:
     - ssh
 {% else %}
     - pyopenssl
+    - swappiness
 {% endif %}
 
 # private .. e.g. not public :-)
@@ -46,3 +48,8 @@ base:
     # NOTE: this requires an edit to have /srv/formulas/docker-formula in file_roots
     - docker
 {% endif %}
+
+  'os_family:Windows':
+    - match: grain
+    - cloud/chocolatey
+

@@ -3,7 +3,7 @@
 # I am not sure what the purpose of that package is. Maybe it's the GUI which I've never used.
 dropbox-package:
   cmd.run:
-    - name: "dpkg -i /tmp/dropbox_2015.10.28_amd64.deb && apt-get -y -f install"
+    - name: /bin/bash -c "dpkg -i /tmp/dropbox_2015.10.28_amd64.deb && apt-get -y -f install"
     - unless: dpkg -s dropbox
     - require:
       - file: /tmp/dropbox_2015.10.28_amd64.deb
@@ -17,7 +17,7 @@ dropbox-package:
 # NOTE: It doesn't update, have to wipe ~/.dropbox-dist and re-run this?
 dropbox-daemon:
   cmd.run:
-    - name: "cd ~ && wget -O - \"https://www.dropbox.com/download?plat=lnx.x86_64\" | tar xzf -"
+    - name: /bin/bash -c "cd ~ && wget -O - \"https://www.dropbox.com/download?plat=lnx.x86_64\" | tar xzf -"
     - unless: ls ~/.dropbox-dist
 
 # Control script

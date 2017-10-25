@@ -22,3 +22,4 @@ general-pkg-installed:
       - cpuid
       - flex
       - bison
+      - btrfs-tools

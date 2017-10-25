@@ -18,7 +18,9 @@ base:
     - steam
     - gyazo
     - ptrace
-    - synergy
+# outdated, would need a redo
+# synergy is crappy anyway, and I don't actually need it on all my desktop deployments
+#    - synergy
     - google-cloud-sdk
     - lyx
     - p4

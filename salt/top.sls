@@ -9,8 +9,6 @@ base:
     - ipv6
 {% if pillar['flavor'] != 'server' %}
     - general-desktop
-    # git clone git@github.com:TTimo/google-chrome-formula.git to /srv/formula
-    - google-chrome
     - xdg-open
 #    - graphics-drivers
     - dropbox

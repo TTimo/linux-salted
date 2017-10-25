@@ -3,6 +3,7 @@ general-pkg-installed:
     - pkgs:
       - aptitude
       - apt-file
+      - python-pip
       - python-software-properties
       - tmux
       - htop

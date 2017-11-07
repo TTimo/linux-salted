@@ -1,5 +1,4 @@
-# TODO: this is not working, the .sls is disabled atm
-{% if salt['cmdmod.retcode']('lspci | grep NVIDIA') == 0 %}
+{% if salt['cmd.retcode']('/bin/bash -c "/usr/bin/lspci | grep NVIDIA"') == 0 %}
 
 graphics-drivers:
   pkgrepo.managed:
@@ -17,4 +16,14 @@ graphics-drivers-removed:
     - pkgs:
       - xserver-xorg-video-nouveau
 
+{% endif %}
+
+{% if salt['cmd.retcode']('/bin/bash -c "/usr/bin/lspci | grep -i radeon"') == 0 %}
+
+padoka:
+  pkgrepo.managed:
+    - ppa: paulo-miguel-dias/mesa
+  pkg.latest:
+    - refresh: True
+  
 {% endif %}

@@ -10,7 +10,7 @@ base:
 {% if pillar['flavor'] != 'server' %}
     - general-desktop
     - xdg-open
-#    - graphics-drivers
+    - graphics-drivers
     - dropbox
     - lightdm
     - xmonad

@@ -1,17 +1,8 @@
 # see https://github.com/gyazo/Gyazo-for-Linux
-
-/tmp/gyazo.sh:
-  file.managed:
-    - source: salt://gyazo/gyazo.sh
-    - mode: 755
-    - unless: dpkg -s gyazo
-    
-gyazo-package:
-  cmd.run:
-    - name: "/tmp/gyazo.sh"
-    - unless: dpkg -s gyazo
-
-gyazo-installed:
-  pkg.installed:
+gyazo:
+  pkgrepo.managed:
+    - name: deb https://packagecloud.io/gyazo/gyazo-for-linux/ubuntu/ zesty main
+    - dist: zesty
+  pkg.latest:
     - name: gyazo
-
+    - refresh: True

@@ -7,9 +7,11 @@
 # and leave it open, then look at SSH_AUTH_SOCK env var
 # connect through mosh and set the same SSH_AUTH_SOCK
 
-mosh_mobile_shell:
+mosh:
   pkgrepo.managed:
     - ppa: keithw/mosh-dev
-  pkg.installed:
+    - dist: zesty
+  pkg.latest:
     - name: mosh
+    - refresh: True
 

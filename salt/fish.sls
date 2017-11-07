@@ -3,19 +3,21 @@
 fish_shell:
   pkgrepo.managed:
     - ppa: fish-shell/release-2
-  pkg.installed:
+  pkg.latest:
     - name: fish
+    - refresh: True
 
-# https://github.com/fish-shell/fish-shell/issues/107
-/usr/share/fish/config.fish:
-  file.blockreplace:
-    - content: |
-        function fish_title
-          true
-        end
-    - append_if_not_found: True
-    - require:
-      - pkg: fish
+# may not be necessary anymore
+## https://github.com/fish-shell/fish-shell/issues/107
+#/usr/share/fish/config.fish:
+#  file.blockreplace:
+#    - content: |
+#        function fish_title
+#          true
+#        end
+#    - append_if_not_found: True
+#    - require:
+#      - pkg: fish
 
 # make it the default shell, YOLO
 "chsh -s /usr/bin/fish root":

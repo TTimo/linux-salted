@@ -8,3 +8,7 @@ URxvt*saveLines:32767
 URxvt*font: xft:Inconsolata
 URxvt.letterSpace: -1
 URxvt*perl-ext-common: default,matcher,-option-popup,-selection-popup,-realine,tabbed
+! see https://bbs.archlinux.org/viewtopic.php?id=57823
+URxvt*scrollTtyOutput:      false
+URxvt*scrollWithBuffer:     true
+URxvt*scrollTtyKeypress:    true

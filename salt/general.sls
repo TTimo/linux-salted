@@ -23,3 +23,5 @@ general-pkg-installed:
       - flex
       - bison
       - btrfs-tools
+      - gdebi
+      - deborphan

@@ -3,6 +3,7 @@
 {% set user = salt['pillar.get']('default-user') %}
 {% set home = salt['user.info'](user).get('home') %}
 
+# NOTE: switch to blockreplace would be better
 {{ home }}/.local/share/applications/defaults.list:
   file.managed:
     - source:

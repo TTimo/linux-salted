@@ -15,5 +15,4 @@ general-desktop-pkg-installed:
       - texlive-latex-extra
       - lyx
       - rxvt-unicode
-      - google-chrome-beta      
 

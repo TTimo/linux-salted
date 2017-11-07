@@ -2,17 +2,17 @@
 emacs-pkg-installed:
   pkg.installed:
     - pkgs:
-      - emacs24-nox
+      - emacs-nox
 {% else %}
 emacs-pkg-removed:
   pkg.removed:
     - pkgs:
-      - emacs24-nox
+      - emacs-nox
     
 emacs-pkg-installed:
   pkg.installed:
     - pkgs:
-      - emacs24
+      - emacs
       - yaml-mode
 {% endif %}
 

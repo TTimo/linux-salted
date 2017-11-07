@@ -3,6 +3,7 @@
 fish_shell:
   pkgrepo.managed:
     - ppa: fish-shell/release-2
+    - dist: artful
   pkg.latest:
     - name: fish
     - refresh: True

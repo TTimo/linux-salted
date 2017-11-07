@@ -10,7 +10,7 @@
 mosh:
   pkgrepo.managed:
     - ppa: keithw/mosh-dev
-    - dist: zesty
+    - dist: artful
   pkg.latest:
     - name: mosh
     - refresh: True

@@ -27,6 +27,7 @@ base:
     - ssh
     - git-lfs
     - google-chrome
+	- llvm
 {% else %}
     - pyopenssl
     - swappiness

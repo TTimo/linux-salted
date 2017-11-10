@@ -3,13 +3,12 @@
 graphics-drivers:
   pkgrepo.managed:
     - ppa: graphics-drivers/ppa
-  pkg.installed:
+  pkg.latest:
+    - refresh: True
     - pkgs:
-      - nvidia-381
-      - nvidia-381-dev
-      - nvidia-modprobe
+      - nvidia-387
+      - nvidia-387-dev
       - mesa-utils
-      - phoronix-test-suite
 
 graphics-drivers-removed:
   pkg.removed:

@@ -7,10 +7,6 @@ fi
 
 cd /srv/formulas
 
-if [ ! -d google-chrome-formula ] ; then
-  git clone https://github.com/TTimo/google-chrome-formula.git
-fi
-
 if [ ! -d steamrt-formula ] ; then
   git clone https://github.com/TTimo/steamrt-formula   
 fi

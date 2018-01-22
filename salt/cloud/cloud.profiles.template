@@ -9,13 +9,14 @@ ec2_ubuntu:
 
 ec2_windows:
   provider: ec2-win
-  size: m3.large
+  size: t2.2xlarge
   # Windows_Server-2012-R2_RTM-English-64Bit-Base-2017.03.15
-  image: ami-11e84107
+  # image: ami-11e84107
   # Windows_Server-2012-R2_RTM-English-64Bit-Core-2017.03.15
   # image: ami-ef359bf9
+  # "Microsoft Windows Server 2016 Base on Windows Server 2016 Base 10"
+  image: ami-0a792a70
   block_device_mappings:
     - DeviceName: /dev/sda1
       Ebs.VolumeSize: 50
   subnetid: {{ salt['pillar.get']('ec2:subnet') }}
-

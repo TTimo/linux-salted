@@ -1,5 +1,5 @@
 # https://docs.saltstack.com/en/latest/topics/cloud/windows.html
-# in order to support spinning up windows minions, some extra software is needed
+# in order to support spinning up windows minions, some extra software is needed on the sale master
 
 pywinrm:
   pip.installed:

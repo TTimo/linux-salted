@@ -28,8 +28,7 @@ base:
     - git-lfs
     - google-chrome
     - llvm
-{% else %}
-    - pyopenssl
+{% else %} # server only
     - swappiness
 {% endif %}
 
@@ -55,4 +54,3 @@ base:
   'os_family:Windows':
     - match: grain
     - cloud/chocolatey
-

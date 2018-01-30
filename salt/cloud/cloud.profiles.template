@@ -1,22 +1,33 @@
 ec2_ubuntu:
   provider: ec2-linux
-  size: m3.large
-  # see https://cloud-images.ubuntu.com/locator/ec2/
-  # us-east-1 Ubuntu Yakkety 16.10 hvm:instance-store
-  image: ami-0151c517
-  # this launches in the VPC with the default security group
+  availability_zone: {{ salt['pillar.get']('ec2:avail') }}
+  # NOTE: need a subnet in the matching availability zone
   subnetid: {{ salt['pillar.get']('ec2:subnet') }}
+  size: t2.medium
+  # see https://cloud-images.ubuntu.com/locator/ec2/
+  # us-east-1 xenial	16.04 LTS	amd64	hvm:ebs-ssd
+  image: ami-66506c1c
+
+ec2_windows_gpu:
+  provider: ec2-win
+  availability_zone: {{ salt['pillar.get']('ec2:avail') }}
+  subnetid: {{ salt['pillar.get']('ec2:subnet') }}
+  # x16 CPU, 122GB RAM, 8GB GPU
+  size: g3.4xlarge
+  # "Microsoft Windows Server 2016 with NVIDIA GRID Driver on Windows Server 2016 Base 10"
+  # https://aws.amazon.com/marketplace/pp/B073WHLGMC - you need to accept the terms
+  image: ami-86673cfc # us-east-1 ami
+  block_device_mappings:
+    - DeviceName: /dev/sda1
+      Ebs.VolumeSize: 80
 
 ec2_windows:
   provider: ec2-win
-  size: t2.2xlarge
-  # Windows_Server-2012-R2_RTM-English-64Bit-Base-2017.03.15
-  # image: ami-11e84107
-  # Windows_Server-2012-R2_RTM-English-64Bit-Core-2017.03.15
-  # image: ami-ef359bf9
+  availability_zone: {{ salt['pillar.get']('ec2:avail') }}
+  subnetid: {{ salt['pillar.get']('ec2:subnet') }}
+  size: t2.medium
   # "Microsoft Windows Server 2016 Base on Windows Server 2016 Base 10"
-  image: ami-0a792a70
+  image: ami-0a792a70 # us-east-1 ami
   block_device_mappings:
     - DeviceName: /dev/sda1
       Ebs.VolumeSize: 50
-  subnetid: {{ salt['pillar.get']('ec2:subnet') }}

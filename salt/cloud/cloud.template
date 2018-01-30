@@ -2,24 +2,26 @@ providers:
   ec2-linux:
     minion:
       master: {{ salt['pillar.get']('ec2:master') }}
+      startup_states: highstate
     # master is on ec2, launching in the private VPS
     ssh_interface: private_ips
     id: {{ salt['pillar.get']('ec2:id') }}
     key: '{{ salt['pillar.get']('ec2:key') }}'
-    private_key: /etc/salt/aws-salt-cloud-us-east.pem
-    keyname: salt-cloud-us-east
+    private_key: '{{ salt['pillar.get']('ec2:ssh_key_path') }}'
+    keyname: '{{ salt['pillar.get']('ec2:ssh_key_name') }}'
     ssh_username: ubuntu
     driver: ec2
   
   ec2-win:
     minion:
       master: {{ salt['pillar.get']('ec2:master') }}
+      startup_states: highstate
     # master is on ec2, launching in the private VPS
     ssh_interface: private_ips
     id: {{ salt['pillar.get']('ec2:id') }}
     key: '{{ salt['pillar.get']('ec2:key') }}'
-    private_key: /etc/salt/aws-salt-cloud-us-east.pem
-    keyname: salt-cloud-us-east
+    private_key: '{{ salt['pillar.get']('ec2:ssh_key_path') }}'
+    keyname: '{{ salt['pillar.get']('ec2:ssh_key_name') }}'
     ssh_username: ubuntu
     driver: ec2
     win_installer: /srv/salt/cloud/Salt-Minion-2016.3.6-AMD64-Setup.exe

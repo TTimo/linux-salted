@@ -1,15 +1,34 @@
-# TODO: reboot after install
-ChocolateyBoostrap:
+{% if grains.get('ChocolateyBootstrap') != 'done' %}
+
+ChocolateyBootstrap:
   module.run:
     - name: chocolatey.bootstrap
+
+ChocolateyBootstrapFence:
+  module.run:
+    - name: grains.setval
+    - key: ChocolateyBootstrap
+    - val: done
+    - watch:
+      - ChocolateyBootstrap
+
+ChocolateyBootstrapReboot:
+  module.run:
+    - name: system.reboot
+    - watch:
+      - ChocolateyBootstrapFence
+
+{% else %}
 
 Chrome:
   chocolatey.installed:
     - name: googlechrome
 
-Firefox:
+# Experimented with this, but Chrome Remote Desktop outperforms by default
+# May be optimizable with some tweaking (mirror drivers etc.)
+UltraVNC:
   chocolatey.installed:
-    - name: firefox
+    - name: ultravnc
 
 MSVC2017:
   chocolatey.installed:
@@ -18,6 +37,10 @@ MSVC2017:
 MSVC2017-workload-nativedesktop:
   chocolatey.installed:
     - name: visualstudio2017-workload-nativedesktop
+
+Firefox:
+  chocolatey.installed:
+    - name: firefox
 
 Git:
   chocolatey.installed:
@@ -49,13 +72,23 @@ Python:
   chocolatey.installed:
     - name: python2
 
+Boto:
+  pip.installed:
+    - name: boto3
+    - bin_env: "C:\\Python27\\Scripts\\pip.exe"
+
+AWS:
+  chocolatey.installed:
+    - name: awscli
+
+CMake:
+  chocolatey.installed:
+    - name: cmake
+
 # FIXME: I have not been able to convert this to the pip.installed with bin_env method
 # fails with "error: option --single-version-externally-managed not recognized"
 Scons:
   cmd.run:
     - name: "C:\\Python27\\Scripts\\pip.exe install --egg scons"
 
-Boto:
-  pip.installed:
-    - name: boto3
-    - bin_env: "C:\\Python27\\Scripts\\pip.exe"
+{% endif %}

@@ -53,4 +53,4 @@ base:
 
   'os_family:Windows':
     - match: grain
-    - cloud/chocolatey
+    - cloud/windows-minion-general

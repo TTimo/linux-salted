@@ -1,9 +1,11 @@
+python-pip:
+  pkg.installed
+
 general-pkg-installed:
   pkg.installed:
     - pkgs:
       - aptitude
       - apt-file
-      - python-pip
       - python-software-properties
       - tmux
       - htop

@@ -44,3 +44,4 @@ winexe-package:
     - group: root
     - mode: 644
     - template: jinja
+ 

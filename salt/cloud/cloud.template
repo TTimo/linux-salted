@@ -24,12 +24,12 @@ providers:
     keyname: '{{ salt['pillar.get']('ec2:ssh_key_name') }}'
     ssh_username: ubuntu
     driver: ec2
-    win_installer: /srv/salt/cloud/Salt-Minion-2016.3.6-AMD64-Setup.exe
+    win_installer: /srv/salt/cloud/Salt-Minion-2017.7.3-Py2-AMD64-Setup.exe
     win_username: Administrator
     win_password: auto
     smb_port: 445
     # See https://github.com/saltstack/salt/issues/34783
     # Need the patch, and extra manual changes, see my comments
-    use_winrm: True
+    # use_winrm: True
     winrm_verify_ssl: False
     userdata_file: /srv/salt/cloud/windows-firewall.ps1

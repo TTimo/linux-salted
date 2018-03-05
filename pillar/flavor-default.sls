@@ -1,2 +1,3 @@
-flavor: desktop
+default-user: ubuntu
+flavor: server
 cloud-enabled: False

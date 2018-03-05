@@ -33,7 +33,7 @@ EOF
 cat <<EOF >/etc/salt/master
 worker_threads: 1
 enable_gpu_grains: True
-pillar_opts: True
+pillar_opts: False
 EOF
 
 # seems new salt setup is dropping a default 'minion_id' which we are not ready for

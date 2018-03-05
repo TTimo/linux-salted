@@ -7,6 +7,7 @@ base:
     - fish
     - mono
     - ipv6
+    - git-lfs
 {% if pillar['flavor'] != 'server' %}
     - general-desktop
     - xdg-open
@@ -18,17 +19,13 @@ base:
     - steam
     - gyazo
     - ptrace
-# outdated, would need a redo
-# synergy is crappy anyway, and I don't actually need it on all my desktop deployments
-#    - synergy
     - google-cloud-sdk
     - lyx
     - p4
     - ssh
-    - git-lfs
     - google-chrome
     - llvm
-{% else %} # server only
+{% else %} # server flavor:
     - swappiness
 {% endif %}
 
@@ -42,9 +39,11 @@ base:
     # git clone git@github.com:TTimo/steamrt-formula.git
     - steamrt
 {% endif %}
+
 {% if pillar['cloud-enabled'] %}
     - cloud
 {% endif %}
+
 {% if salt.file.directory_exists('/srv/formulas/docker-formula/docker') %}
     # git clone https://github.com/saltstack-formulas/docker-formula.git
     # NOTE: this requires an edit to have /srv/formulas/docker-formula in file_roots

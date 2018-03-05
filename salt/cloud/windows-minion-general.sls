@@ -30,6 +30,7 @@ UltraVNC:
   chocolatey.installed:
     - name: ultravnc
 
+# This throws an error atm, causes unclear
 MSVC2017:
   chocolatey.installed:
     - name: visualstudio2017community

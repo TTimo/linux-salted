@@ -27,3 +27,4 @@ general-pkg-installed:
       - btrfs-tools
       - gdebi
       - deborphan
+      - autossh

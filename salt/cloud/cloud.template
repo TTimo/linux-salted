@@ -5,6 +5,8 @@ providers:
       startup_states: highstate
     # master is on ec2, launching in the private VPS
     ssh_interface: private_ips
+    location: {{ salt['pillar.get']('ec2:location') }}
+    availability_zone: {{ salt['pillar.get']('ec2:availability_zone') }}
     id: {{ salt['pillar.get']('ec2:id') }}
     key: '{{ salt['pillar.get']('ec2:key') }}'
     private_key: '{{ salt['pillar.get']('ec2:ssh_key_path') }}'
@@ -18,6 +20,8 @@ providers:
       startup_states: highstate
     # master is on ec2, launching in the private VPS
     ssh_interface: private_ips
+    location: {{ salt['pillar.get']('ec2:location') }}
+    availability_zone: {{ salt['pillar.get']('ec2:availability_zone') }}
     id: {{ salt['pillar.get']('ec2:id') }}
     key: '{{ salt['pillar.get']('ec2:key') }}'
     private_key: '{{ salt['pillar.get']('ec2:ssh_key_path') }}'

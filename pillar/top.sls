@@ -1,7 +1,7 @@
 base:
   '*':
     - google-chrome
-    - flavor-default
+    - pillar-default
   'master':
     - pillar-master
   'SaServer':

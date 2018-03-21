@@ -1,2 +1,3 @@
+!pillar-default.sls
 pillar-*.sls
 

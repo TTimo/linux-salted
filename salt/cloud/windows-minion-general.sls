@@ -39,6 +39,10 @@ MSVC2017-workload-nativedesktop:
   chocolatey.installed:
     - name: visualstudio2017-workload-nativedesktop
 
+WindowsSDK:
+  chocolatey.installed:
+    - name: windows-sdk-8.1
+
 Firefox:
   chocolatey.installed:
     - name: firefox

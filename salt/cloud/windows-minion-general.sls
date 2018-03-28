@@ -96,4 +96,20 @@ Scons:
   cmd.run:
     - name: "C:\\Python27\\Scripts\\pip.exe install --egg scons"
 
+Emacs:
+  chocolatey.installed:
+    - name: emacs
+
+cyg-get:
+  chocolatey.installed:
+    - name: cyg-get
+
+Putty:
+  chocolatey.installed:
+    - name: putty
+    
+Dropbox:
+  chocolatey.installed:
+    - name: chocolatey
+
 {% endif %}

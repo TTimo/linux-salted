@@ -110,6 +110,6 @@ Putty:
     
 Dropbox:
   chocolatey.installed:
-    - name: chocolatey
+    - name: dropbox
 
 {% endif %}

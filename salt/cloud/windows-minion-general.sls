@@ -112,4 +112,16 @@ Dropbox:
   chocolatey.installed:
     - name: dropbox
 
+P4:
+  chocolatey.installed:
+    - name: p4
+    
+P4V:
+  chocolatey.installed:
+    - name: p4v
+
+Araxis:
+  chocolatey.installed:
+    - name: araxismerge
+
 {% endif %}

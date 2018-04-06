@@ -24,7 +24,8 @@ base:
     - p4
     - ssh
     - google-chrome
-    - llvm
+    # causes more trouble than it's worth atm
+    # - llvm
 {% else %} # server flavor:
     - swappiness
 {% endif %}

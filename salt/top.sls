@@ -26,6 +26,7 @@ base:
     - google-chrome
     # causes more trouble than it's worth atm
     # - llvm
+    - sourcetrail
 {% else %} # server flavor:
     - swappiness
 {% endif %}

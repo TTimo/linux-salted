@@ -16,3 +16,4 @@ general-desktop-pkg-installed:
       - lyx
       - rxvt-unicode
       - meld
+

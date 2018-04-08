@@ -5,6 +5,8 @@ xmonad-packages:
       - xmobar
       - rxvt-unicode
       - fonts-inconsolata
+      - gmrun
+      - dzen2
 
 {% set user = salt['pillar.get']('default-user') %}
 {% set home = salt['user.info'](user).get('home') %}

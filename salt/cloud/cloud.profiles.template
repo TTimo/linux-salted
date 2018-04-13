@@ -13,3 +13,13 @@ ec2-windows-gpu:
   block_device_mappings:
     - DeviceName: /dev/sda1
       Ebs.VolumeSize: 100
+
+ec2-windows:
+  provider: ec2-win
+  securitygroup: {{ salt['pillar.get']('ec2:securitygroup') }}
+  # x16 CPU, 64GB RAM
+  size: m5.4xlarge
+  image: {{ salt['pillar.get']('ec2:ami-win') }}
+  block_device_mappings:
+    - DeviceName: /dev/sda1
+      Ebs.VolumeSize: 100

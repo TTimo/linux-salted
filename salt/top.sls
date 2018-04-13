@@ -53,3 +53,9 @@ base:
   'os_family:Windows':
     - match: grain
     - cloud/windows-minion-general
+
+  '*':
+{% if pillar['buildbot'] %}
+    - buildbot
+{% endif %}
+

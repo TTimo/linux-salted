@@ -6,3 +6,5 @@ base:
     - pillar-master
   'SaServer':
     - pillar-SaServer
+  'Radiant':
+    - pillar-Radiant

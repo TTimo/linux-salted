@@ -77,6 +77,10 @@ Python:
   chocolatey.installed:
     - name: python2
 
+Python3:
+  chocolatey.installed:
+    - name: python3
+
 Boto:
   pip.installed:
     - name: boto3

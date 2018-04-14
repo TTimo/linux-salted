@@ -22,7 +22,5 @@ graphics-drivers-removed:
 padoka:
   pkgrepo.managed:
     - ppa: paulo-miguel-dias/mesa
-  pkg.latest:
-    - refresh: True
   
 {% endif %}

@@ -86,6 +86,11 @@ Boto:
     - name: boto3
     - bin_env: "C:\\Python27\\Scripts\\pip.exe"
 
+BotoPython3:
+  pip.installed:
+    - name: boto3
+    - bin_env: "C:\\Python36\\Scripts\\pip.exe"
+
 AWS:
   chocolatey.installed:
     - name: awscli

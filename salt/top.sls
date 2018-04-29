@@ -27,6 +27,7 @@ base:
     # causes more trouble than it's worth atm
     # - llvm
     - sourcetrail
+    - flatpak
 {% else %} # server flavor:
     - swappiness
 {% endif %}

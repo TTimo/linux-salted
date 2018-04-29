@@ -3,16 +3,13 @@
     - source: salt://p4/p4
     - mode: 755
 
-# NOTE: Haven't found a way without this rather unsafe and unnecessary copy
-/tmp/p4v.tgz:
-  file.managed:
+{% set dirname = 'p4v-2018.1.1637591' %}
+      
+/opt/{{ dirname }}:
+  archive.extracted:
     - source: salt://p4/p4v.tgz
-
-/opt/p4v-2018.1.1637591:
-  cmd.run:
-    - name: "tar xvzf /tmp/p4v.tgz"
-    - cwd: /opt
+    - name: /opt
 
 /usr/local/bin/p4v:
   file.symlink:
-    - target: /opt/p4v-2018.1.1637591/bin/p4v
+    - target: /opt/{{ dirname }}/bin/p4v

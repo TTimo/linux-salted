@@ -6,9 +6,10 @@ graphics-drivers:
   pkg.latest:
     - refresh: True
     - pkgs:
-      - nvidia-387
-      - nvidia-387-dev
+      - nvidia-396
+      - nvidia-396-dev
       - mesa-utils
+      - mesa-utils:i386
 
 graphics-drivers-removed:
   pkg.removed:

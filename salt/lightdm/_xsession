@@ -1,7 +1,15 @@
 #!/bin/bash
+
+# changes the default shell for the X session
+# but doesn't change the shell globally (e.g. chsh), so ssh still uses bash,
+# which avoids a bug in Visual Studio's Linux Development tools
+export SHELL=/usr/bin/fish
+
 # does not prompt to add the key for some reason?
 eval `SHELL=/bin/bash /usr/bin/keychain --eval id_rsa`
 ssh-add
+
 /usr/local/bin/dropbox.py start &
 /usr/bin/steam &
+
 exec xmonad

@@ -8,19 +8,11 @@ fish_shell:
     - name: fish
     - refresh: True
 
-# may not be necessary anymore
-## https://github.com/fish-shell/fish-shell/issues/107
-#/usr/share/fish/config.fish:
-#  file.blockreplace:
-#    - content: |
-#        function fish_title
-#          true
-#        end
-#    - append_if_not_found: True
-#    - require:
-#      - pkg: fish
+# disabled for desktop, setting this via SHELL env var in ~/.xsession
+{% if pillar['flavor'] == 'server' %}
 
-# make it the default shell, YOLO
+# set as default shell
+
 "chsh -s /usr/bin/fish root":
   cmd.run:
     - unless: "grep root /etc/passwd | grep fish" 
@@ -30,3 +22,5 @@ fish_shell:
 "chsh -s /usr/bin/fish {{ user }}":
   cmd.run:
     - unless: "grep {{ user }} /etc/passwd | grep fish"
+
+{% endif %}

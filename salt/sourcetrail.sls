@@ -3,7 +3,7 @@
 
 /opt/Sourcetrail:
   archive.extracted:
-    - source: salt://sourcetrail/Sourcetrail_2018_2_23_Linux_64bit.tar.gz
+    - source: salt://sourcetrail/Sourcetrail_2018_2_36_Linux_64bit.tar.gz
     - name: /opt
 
 /usr/local/bin/sourcetrail:

@@ -28,3 +28,5 @@ general-pkg-installed:
       - gdebi
       - deborphan
       - autossh
+      - pylint
+      - pylint3

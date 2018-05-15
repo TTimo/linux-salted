@@ -31,4 +31,15 @@ padoka:
 libegl-mesa0:
   pkg.installed
 
+# Might as well ditch those too, their presence is possibly related to the bug mentioned above
+"apt remove 'libnvidia-*'":
+  cmd.run
+
+vulkan-packages:
+  pkg.latest:
+    - refresh: True
+    - pkgs:
+      - vulkan-utils
+      - mesa-vulkan-drivers
+
 {% endif %}

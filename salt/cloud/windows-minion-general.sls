@@ -133,4 +133,8 @@ Araxis:
   chocolatey.installed:
     - name: araxismerge
 
+InnoSetup:
+  chocolatey.installed:
+    - name: innosetup
+
 {% endif %}

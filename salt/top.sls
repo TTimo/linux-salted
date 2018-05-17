@@ -20,13 +20,11 @@ base:
     - gyazo
     - ptrace
     - google-cloud-sdk
-    - lyx
     - p4
     - ssh
     - google-chrome
-    # causes more trouble than it's worth atm
-    # - llvm
     - sourcetrail
+    - flatpak
 {% else %} # server flavor:
     - swappiness
 {% endif %}

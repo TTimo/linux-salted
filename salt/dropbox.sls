@@ -1,5 +1,5 @@
 # see https://www.dropbox.com/help/desktop-web/linux-repository
-# xenial is latest available at time of writing (no zesty)
+# xenial is latest available - 2018/5/6
 dropbox:
   pkgrepo.managed:
     - humanname: dropbox

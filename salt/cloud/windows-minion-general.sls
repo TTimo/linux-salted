@@ -24,11 +24,11 @@ Chrome:
   chocolatey.installed:
     - name: googlechrome
 
-# Experimented with this, but Chrome Remote Desktop outperforms by default
-# May be optimizable with some tweaking (mirror drivers etc.)
-UltraVNC:
-  chocolatey.installed:
-    - name: ultravnc
+# Not actually using this, and it has some annoying prompt when installed
+# Chrome Remote Desktop is better overall
+#UltraVNC:
+#  chocolatey.installed:
+#    - name: ultravnc
 
 # This throws an error atm, causes unclear
 MSVC2017:
@@ -69,6 +69,11 @@ CygwinFish:
     - name: chocolatey.install_cygwin
     - m_name: fish
 
+CygwinWget:
+  module.run:
+    - name: chocolatey.install_cygwin
+    - m_name: wget
+      
 Conemu:
   chocolatey.installed:
     - name: conemu

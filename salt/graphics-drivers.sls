@@ -6,8 +6,7 @@ graphics-drivers:
   pkg.latest:
     - refresh: True
     - pkgs:
-      - nvidia-396
-      - nvidia-396-dev
+      - nvidia-driver-396
       - mesa-utils
       - mesa-utils:i386
 
@@ -15,6 +14,14 @@ graphics-drivers-removed:
   pkg.removed:
     - pkgs:
       - xserver-xorg-video-nouveau
+
+vulkan-packages:
+  pkg.latest:
+    - refresh: True
+    - pkgs:
+      - vulkan-utils
+      - libvulkan1
+      - libvulkan1:i386
 
 {% endif %}
 

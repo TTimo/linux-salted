@@ -6,7 +6,7 @@ general-pkg-installed:
     - pkgs:
       - aptitude
       - apt-file
-      - python-software-properties
+      - python-apt
       - tmux
       - htop
       - iotop

@@ -5,11 +5,9 @@
 # which avoids a bug in Visual Studio's Linux Development tools
 export SHELL=/usr/bin/fish
 
-# does not prompt to add the key for some reason?
-eval `SHELL=/bin/bash /usr/bin/keychain --eval id_rsa`
-ssh-add
+eval `SSH_ASKPASS=ssh-askpass-fullscreen SHELL=/bin/bash /usr/bin/keychain --eval id_rsa`
 
-/usr/local/bin/dropbox.py start &
+dropbox start &
 /usr/bin/steam &
 
 exec xmonad

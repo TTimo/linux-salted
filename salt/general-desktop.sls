@@ -11,6 +11,7 @@ general-desktop-pkg-installed:
     - pkgs:
       - keychain
       - ssh-askpass
+      - ssh-askpass-fullscreen
       - texlive
       - texlive-latex-extra
       - lyx

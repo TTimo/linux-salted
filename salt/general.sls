@@ -7,6 +7,7 @@ general-pkg-installed:
       - aptitude
       - apt-file
       - python-apt
+      - net-tools
       - tmux
       - htop
       - iotop

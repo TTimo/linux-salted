@@ -32,7 +32,7 @@ base:
 # private .. e.g. not public :-)
 {% if salt.file.directory_exists('/srv/formulas/linux-salted-private') %}
     - private/irssi
-#    - private/vpn
+    - private/vpn
 {% endif %}
 
 {% if salt.file.directory_exists('/srv/formulas/steamrt-formula/steamrt') %}

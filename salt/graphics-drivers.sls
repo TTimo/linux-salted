@@ -47,6 +47,7 @@ vulkan-packages:
     - refresh: True
     - pkgs:
       - mesa-vulkan-drivers
+      - mesa-vulkan-drivers:i386
 
 {% endif %}
 
@@ -65,3 +66,12 @@ graphics-drivers-common:
   file.managed:
     - source: salt://glxinfo.x86_64
     - mode: 755
+
+steamvr-kisak:
+  pkgrepo.managed:
+    - ppa: kisak/steamvr
+
+steamvr-kisak-packages:
+  pkg.latest:
+    - pkgs:
+      - linux-lowlatency-steamvr-18.04

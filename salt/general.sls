@@ -31,3 +31,4 @@ general-pkg-installed:
       - autossh
       - pylint
       - pylint3
+      - schroot

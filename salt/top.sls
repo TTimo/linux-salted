@@ -25,6 +25,7 @@ base:
     - google-chrome
     - sourcetrail
     - flatpak
+    - chrome-remote-desktop
 {% else %} # server flavor:
     - swappiness
 {% endif %}

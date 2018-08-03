@@ -30,3 +30,4 @@ general-pkg-installed:
       - autossh
       - pylint
       - pylint3
+      - python3-boto3

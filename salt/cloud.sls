@@ -1,16 +1,11 @@
 # https://docs.saltstack.com/en/latest/topics/cloud/windows.html
 # in order to support spinning up windows minions, some extra software is needed on the sale master
 
-pywinrm:
-  pip.installed:
-    - require:
-      - pkg: python-pip
-
-# I don't trust the distro package - no particular reason though
-impacket:
-  pip.installed:
-    - require:
-      - pkg: python-pip
+cloud-support-packages:
+  pkg.installed:
+    - pkgs:
+      - python-winrm
+      - python-impacket
 
 {% set user = salt['pillar.get']('default-user') %}
 {% set home = salt['user.info'](user).get('home') %}

@@ -1,12 +1,11 @@
-python-pip:
-  pkg.installed
-
 general-pkg-installed:
   pkg.installed:
     - pkgs:
       - aptitude
       - apt-file
       - python-apt
+      - python-pip
+      - python3-pip
       - net-tools
       - tmux
       - htop

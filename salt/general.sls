@@ -6,7 +6,8 @@ general-pkg-installed:
     - pkgs:
       - aptitude
       - apt-file
-      - python-software-properties
+      - python-apt
+      - net-tools
       - tmux
       - htop
       - iotop
@@ -30,4 +31,5 @@ general-pkg-installed:
       - autossh
       - pylint
       - pylint3
+      - schroot
       - python3-boto3

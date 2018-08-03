@@ -3,7 +3,7 @@
     - source: salt://p4/p4
     - mode: 755
 
-{% set dirname = 'p4v-2018.1.1637591' %}
+{% set dirname = 'p4v-2018.2.1666551' %}
       
 /opt/{{ dirname }}:
   archive.extracted:

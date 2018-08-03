@@ -9,8 +9,11 @@ general-desktop-pkg-removed:
 general-desktop-pkg-installed:
   pkg.installed:
     - pkgs:
+      - ubuntu-desktop
+      - xfce4
       - keychain
       - ssh-askpass
+      - ssh-askpass-fullscreen
       - texlive
       - texlive-latex-extra
       - lyx

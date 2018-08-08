@@ -39,4 +39,34 @@ winexe-package:
     - group: root
     - mode: 644
     - template: jinja
- 
+
+aws-cloud-credentials-create:
+  file.touch:
+    - name: {{ home }}/.aws/credentials
+    - makedirs: True
+
+aws-cloud-credentials-set:      
+  file.blockreplace:
+    - append_if_not_found: True
+    - marker_start: '# -- start salt cloud creds'
+    - marker_end: '# -- end salt cloud creds'
+    - name: {{ home }}/.aws/credentials
+    - content: |
+        [salt cloud]
+        aws_access_key_id = {{ salt['pillar.get']('ec2:id') }}
+        aws_secret_access_key = {{ salt['pillar.get']('ec2:key') }}
+
+aws-cloud-config-created:
+  file.touch:
+    - name: {{ home }}/.aws/config
+    - makedirs: True
+
+aws-cloud-config-set:
+  file.blockreplace:
+    - append_if_not_found: True
+    - marker_start: '# -- start salt cloud creds'
+    - marker_end: '# -- end salt cloud creds'
+    - name: {{ home }}/.aws/config
+    - content: |
+        [salt cloud]
+        region = {{ salt['pillar.get']('ec2:location') }}

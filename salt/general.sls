@@ -31,4 +31,5 @@ general-pkg-installed:
       - pylint
       - pylint3
       - schroot
+      - awscli
       - python3-boto3

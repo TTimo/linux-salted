@@ -41,9 +41,12 @@ winexe-package:
     - template: jinja
 
 aws-cloud-credentials-create:
-  file.touch:
+  file.managed:
     - name: {{ home }}/.aws/credentials
     - makedirs: True
+    - user: {{ user }}
+    - group: {{ user }}
+    - mode: 644
 
 aws-cloud-credentials-set:      
   file.blockreplace:
@@ -55,18 +58,8 @@ aws-cloud-credentials-set:
         [salt cloud]
         aws_access_key_id = {{ salt['pillar.get']('ec2:id') }}
         aws_secret_access_key = {{ salt['pillar.get']('ec2:key') }}
-
-aws-cloud-config-created:
-  file.touch:
-    - name: {{ home }}/.aws/config
-    - makedirs: True
-
-aws-cloud-config-set:
-  file.blockreplace:
-    - append_if_not_found: True
-    - marker_start: '# -- start salt cloud creds'
-    - marker_end: '# -- end salt cloud creds'
-    - name: {{ home }}/.aws/config
-    - content: |
-        [salt cloud]
         region = {{ salt['pillar.get']('ec2:location') }}
+
+# Still confused by this, but apparently ~/.aws/credentials is all I should need
+{{ home }}/.aws/config:
+  file.missing

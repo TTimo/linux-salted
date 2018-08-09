@@ -33,3 +33,4 @@ general-pkg-installed:
       - schroot
       - awscli
       - python3-boto3
+      - ipython3

@@ -34,6 +34,7 @@ general-pkg-installed:
       - awscli
       - python3-boto3
       - ipython3
+      - inotify-tools
 
 general-pip-installed:
   pip.installed:

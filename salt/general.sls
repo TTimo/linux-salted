@@ -34,3 +34,8 @@ general-pkg-installed:
       - awscli
       - python3-boto3
       - ipython3
+
+general-pip-installed:
+  pip.installed:
+    - names:
+      - treq

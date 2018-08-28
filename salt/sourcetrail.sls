@@ -1,7 +1,7 @@
 # There is a sort of install script in the Sourcetrail archive, but I bypass it for the most part
 # that install script is a little too primitive to be safe..
 
-{% set version = '2018_3_13' %}
+{% set version = '2018_3_54' %}
 
 /opt/Sourcetrail_{{ version }}:
   archive.extracted:

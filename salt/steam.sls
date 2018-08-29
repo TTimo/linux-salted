@@ -2,7 +2,7 @@ steam:
   pkg.installed:
     - name: steam:i386
     # Ubuntu uses an Epoch on their steam package, which causes the official version to not be recognized as an upgrade
-    - version: 1.0.0.55
+    - version: 1.0.0.56
 
 # the steam package insists on creating this entry,
 # so we can't use pkgrepo.managed (which writes to /etc/apt/sources.list)

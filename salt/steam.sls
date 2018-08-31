@@ -17,3 +17,6 @@ steam-deps:
     - name: libgl1-mesa-glx:i386
     - refresh: True
 
+# There is an interactive license prompt that causes this to fail unattended install?
+steamcmd:
+  pkg.installed

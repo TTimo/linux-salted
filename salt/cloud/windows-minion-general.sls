@@ -24,11 +24,11 @@ Chrome:
   chocolatey.installed:
     - name: googlechrome
 
-# Not actually using this, and it has some annoying prompt when installed
-# Chrome Remote Desktop is better overall
-#UltraVNC:
-#  chocolatey.installed:
-#    - name: ultravnc
+# I was installing it on some machines, but turns out I don't want it
+# Chrome Remote Desktop a better option overall
+NoUltraVNC:
+  chocolatey.uninstalled:
+    - name: ultravnc
 
 # This throws an error atm, causes unclear
 MSVC2017:

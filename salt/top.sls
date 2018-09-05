@@ -3,34 +3,44 @@ base:
     - match: grain
     - general
     - emacs
-    - mosh
     - fish
     - mono
     - ipv6
     - git-lfs
-{% if pillar['flavor'] != 'server' %}
+
+{% if pillar['flavor'] == 'desktop' %}
+    # common to my Ubuntu and SteamOS installs
     - general-desktop
-    - xdg-open
-    - graphics-drivers
     - dropbox
     - lightdm
     - xmonad
-    - grub
-    - steam
-    - gyazo
-    - ptrace
-    - google-cloud-sdk
     - p4
-    - ssh
     - google-chrome
     - sourcetrail
-    - flatpak
-    - chrome-remote-desktop
-{% else %} # server flavor:
+{% endif %}
+
+{% if pillar['flavor'] == 'server' %}
     - swappiness
 {% endif %}
 
-# private .. e.g. not public :-)
+  'not G@os:SteamOS':
+    - match: compound
+    - ubuntu-mosh
+{% if pillar['flavor'] == 'desktop' %}
+    # too specific and intrusive to do on SteamOS images
+    - ubuntu-desktop
+    - gyazo
+    - ptrace
+    - xdg-open
+    - graphics-drivers
+    - grub
+    - steam
+    - google-cloud-sdk
+    - ssh
+    - flatpak
+    - chrome-remote-desktop
+{% endif %}
+
 {% if salt.file.directory_exists('/srv/formulas/linux-salted-private') %}
     - private/irssi
     - private/vpn

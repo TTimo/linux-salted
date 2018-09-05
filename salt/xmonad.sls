@@ -7,6 +7,9 @@ xmonad-packages:
       - fonts-inconsolata
       - gmrun
       - dzen2
+{% if grains['os'] == 'SteamOS' %}
+      - libghc-xmonad-dev
+{% endif %}
 
 {% set user = salt['pillar.get']('default-user') %}
 {% set home = salt['user.info'](user).get('home') %}

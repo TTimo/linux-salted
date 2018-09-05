@@ -1,3 +1,6 @@
+lightdm:
+  pkg.installed
+
 /etc/lightdm/lightdm.conf.d/50-ubuntu.conf:
   file.managed:
     - source:

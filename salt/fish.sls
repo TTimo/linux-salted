@@ -1,9 +1,11 @@
 # http://fishshell.com/
 
 fish_shell:
+{% if grains['os'] != 'SteamOS' %}
   pkgrepo.managed:
     - ppa: fish-shell/release-2
     - dist: artful
+{% endif %}
   pkg.latest:
     - name: fish
     - refresh: True

@@ -2,6 +2,8 @@ base:
   '*':
     - google-chrome
     - pillar-default
+  'steamos':
+    - pillar-steamos
   'master':
     - pillar-master
   'SaServer':

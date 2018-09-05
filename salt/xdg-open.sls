@@ -1,4 +1,5 @@
 # xdg-open is still opening things with FireFox after chrome is setup. address this
+# NOTE: I'm back to firefox this days .. what gives ..
 
 {% set user = salt['pillar.get']('default-user') %}
 {% set home = salt['user.info'](user).get('home') %}

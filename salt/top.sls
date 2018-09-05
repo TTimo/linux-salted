@@ -6,7 +6,6 @@ base:
     - fish
     - mono
     - ipv6
-    - git-lfs
 
 {% if pillar['flavor'] == 'desktop' %}
     # common to my Ubuntu and SteamOS installs
@@ -26,6 +25,7 @@ base:
   'not G@os:SteamOS':
     - match: compound
     - ubuntu-mosh
+    - git-lfs
 {% if pillar['flavor'] == 'desktop' %}
     # too specific and intrusive to do on SteamOS images
     - ubuntu-desktop

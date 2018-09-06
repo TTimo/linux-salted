@@ -1,19 +1,15 @@
 {% if pillar['flavor'] == 'server' %}
-emacs-pkg-installed:
-  pkg.installed:
-    - pkgs:
-      - emacs-nox
+emacs-nox:
+  pkg.installed
 {% else %}
 emacs-pkg-removed:
   pkg.removed:
     - pkgs:
       - emacs-nox
-    
-emacs-pkg-installed:
-  pkg.installed:
-    - pkgs:
-      - emacs
-      - yaml-mode
+      - emacs24-nox
+
+emacs:
+  pkg.installed
 {% endif %}
 
 yaml-mode:

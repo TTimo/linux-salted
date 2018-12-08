@@ -20,6 +20,24 @@ ChocolateyBootstrapReboot:
 
 {% else %}
 
+# There has to be a better way to do this with onlyif, rather than using macros..
+{% if grains.get('ChocolateyGlobalConfirmation') != 'done' %}
+
+# Don't get prompted yes/no/whatever when issuing chocolatey commands
+ChocolateyAllowGlobalConfirmation:
+  cmd.run:
+    - name: "choco feature enable -n allowGlobalConfirmation"
+
+ChocolateyGlobalConfirmationGrain:
+  module.run:
+    - name: grains.setval
+    - key: ChocolateyGlobalConfirmation
+    - val: done
+    - watch:
+      - ChocolateyAllowGlobalConfirmation
+
+{% endif %}
+
 Chrome:
   chocolatey.installed:
     - name: googlechrome
@@ -31,11 +49,11 @@ NoUltraVNC:
     - name: ultravnc
 
 # This throws an error atm, causes unclear
-MSVC2017:
+visualstudio2017community:
   chocolatey.installed:
     - name: visualstudio2017community
 
-MSVC2017-workload-nativedesktop:
+visualstudio2017-workload-nativedesktop:
   chocolatey.installed:
     - name: visualstudio2017-workload-nativedesktop
 
@@ -78,7 +96,13 @@ Conemu:
   chocolatey.installed:
     - name: conemu
 
-Python:
+# We need to be explicit about python 2 and 3,
+# Otherwise it tries to upgrade 2 to 3 and things don't go well
+NoGenericPython:
+  chocolatey.uninstalled:
+    - name: python
+
+Python2:
   chocolatey.installed:
     - name: python2
 
@@ -86,7 +110,7 @@ Python3:
   chocolatey.installed:
     - name: python3
 
-Boto:
+boto3:
   pip.installed:
     - name: boto3
     - bin_env: "C:\\Python27\\Scripts\\pip.exe"
@@ -106,11 +130,11 @@ CMake:
 
 # FIXME: I have not been able to convert this to the pip.installed with bin_env method
 # fails with "error: option --single-version-externally-managed not recognized"
-Scons:
-  cmd.run:
-    - name: "C:\\Python27\\Scripts\\pip.exe install --egg scons"
+#Scons:
+#  cmd.run:
+#    - name: "C:\\Python27\\Scripts\\pip.exe install --egg scons"
 
-Emacs:
+emacs:
   chocolatey.installed:
     - name: emacs
 
@@ -141,5 +165,13 @@ Araxis:
 InnoSetup:
   chocolatey.installed:
     - name: innosetup
+
+spacesniffer:
+  chocolatey.installed:
+    - name: spacesniffer
+
+nxlog:
+  chocolatey.installed:
+    - name: nxlog
 
 {% endif %}

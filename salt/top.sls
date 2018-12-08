@@ -8,7 +8,6 @@ base:
     - ipv6
 
 {% if pillar['flavor'] == 'desktop' %}
-    # common to my Ubuntu and SteamOS installs
     - general-desktop
     - dropbox
     - lightdm
@@ -22,8 +21,6 @@ base:
     - swappiness
 {% endif %}
 
-  'not G@os:SteamOS':
-    - match: compound
     - ubuntu-mosh
     - git-lfs
 {% if pillar['flavor'] == 'desktop' %}

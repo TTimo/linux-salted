@@ -18,7 +18,7 @@ ChocolateyBootstrapReboot:
     - watch:
       - ChocolateyBootstrapFence
 
-{% else %}
+{% else %} # ChocolateyBootstrap
 
 # There has to be a better way to do this with onlyif, rather than using macros..
 {% if grains.get('ChocolateyGlobalConfirmation') != 'done' %}
@@ -36,7 +36,39 @@ ChocolateyGlobalConfirmationGrain:
     - watch:
       - ChocolateyAllowGlobalConfirmation
 
-{% endif %}
+{% endif %} # ChocolateyGlobalConfirmation
+
+# Install python before considering the salt-minion upgrade
+
+# We need to be explicit about python 2 and 3,
+# Otherwise it tries to upgrade 2 to 3 and things don't go well
+NoGenericPython:
+  chocolatey.uninstalled:
+    - name: python
+
+Python2:
+  chocolatey.installed:
+    - name: python2
+
+Python3:
+  chocolatey.installed:
+    - name: python3
+
+# Bring the salt minion under chocolatey:
+# In order to reinstall/upgrade salt under choco, salt-minion service needs to be stopped
+# That would normally kill and abort any command that is running
+# So I wrote this script that will respawn a child process in such a way that it doesn't get killed when salt stops
+# This will start detecting that saltminion has been installed/upgraded under chocolatey:
+{% set test = salt['cmd.run']('choco list --local-only saltminion') %}
+{% if test.find('0 packages') != -1 %}
+
+C:/salt-choco-minion.py:
+  file.managed:
+    - source: salt://cloud/salt-choco-minion.py
+  cmd.run:
+    - name: "C:/Python37/python.exe C:/salt-choco-minion.py"
+
+{% else %} # Salt has been upgraded and brought under chocolatey, do the big install work now
 
 Chrome:
   chocolatey.installed:
@@ -95,20 +127,6 @@ CygwinWget:
 Conemu:
   chocolatey.installed:
     - name: conemu
-
-# We need to be explicit about python 2 and 3,
-# Otherwise it tries to upgrade 2 to 3 and things don't go well
-NoGenericPython:
-  chocolatey.uninstalled:
-    - name: python
-
-Python2:
-  chocolatey.installed:
-    - name: python2
-
-Python3:
-  chocolatey.installed:
-    - name: python3
 
 boto3:
   pip.installed:
@@ -174,4 +192,10 @@ nxlog:
   chocolatey.installed:
     - name: nxlog
 
-{% endif %}
+processhacker:
+  chocolatey.installed:
+    - name: processhacker
+
+{% endif %} # !SaltedChocolatey
+
+{% endif %} # !ChocolateyBoostrap

@@ -54,6 +54,12 @@ Python3:
   chocolatey.installed:
     - name: python3
 
+Python36:
+  chocolatey.installed:
+    - name: python3
+    - package_args: "-allow-downgrade --version 3.6.8"
+    - override_args: True
+
 # Bring the salt minion under chocolatey:
 # In order to reinstall/upgrade salt under choco, salt-minion service needs to be stopped
 # That would normally kill and abort any command that is running
@@ -146,12 +152,6 @@ CMake:
   chocolatey.installed:
     - name: cmake
 
-# FIXME: I have not been able to convert this to the pip.installed with bin_env method
-# fails with "error: option --single-version-externally-managed not recognized"
-#Scons:
-#  cmd.run:
-#    - name: "C:\\Python27\\Scripts\\pip.exe install --egg scons"
-
 emacs:
   chocolatey.installed:
     - name: emacs
@@ -171,10 +171,6 @@ Dropbox:
 P4:
   chocolatey.installed:
     - name: p4
-    
-P4V:
-  chocolatey.installed:
-    - name: p4v
 
 Araxis:
   chocolatey.installed:

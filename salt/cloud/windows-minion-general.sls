@@ -99,6 +99,12 @@ WindowsSDK:
   chocolatey.installed:
     - name: windows-sdk-8.1
 
+# This may not be enough for the 4.6.2 SDK and 4.6.2 Targeting Pack
+# Or maybe a reboot is required
+dotnet4.6.2:
+  chocolatey.installed:
+    - name: dotnet4.6.2
+
 Firefox:
   chocolatey.installed:
     - name: firefox

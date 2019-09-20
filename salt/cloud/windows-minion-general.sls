@@ -54,11 +54,13 @@ Python3:
   chocolatey.installed:
     - name: python3
 
+# This doesn't seem to take
 Python36:
   chocolatey.installed:
     - name: python3
     - package_args: "-allow-downgrade --version 3.6.8"
-    - override_args: True
+    # Maybe it doesn't take because of this?
+#    - override_args: True
 
 # Bring the salt minion under chocolatey:
 # In order to reinstall/upgrade salt under choco, salt-minion service needs to be stopped
@@ -95,9 +97,17 @@ visualstudio2017-workload-nativedesktop:
   chocolatey.installed:
     - name: visualstudio2017-workload-nativedesktop
 
+vscode:
+  chocolatey.installed:
+    - name: vscode
+
 WindowsSDK:
   chocolatey.installed:
     - name: windows-sdk-8.1
+
+dotnet4.5:
+  chocolatey.installed:
+    - name: dotnet4.5
 
 Firefox:
   chocolatey.installed:
@@ -106,10 +116,6 @@ Firefox:
 Git:
   chocolatey.installed:
     - name: git
-
-SVN:
-  chocolatey.installed:
-    - name: svn
 
 Cygwin:
   chocolatey.installed:
@@ -168,6 +174,10 @@ Dropbox:
   chocolatey.installed:
     - name: dropbox
 
+1password:
+  chocolatey.installed:
+    - name: 1password
+
 P4:
   chocolatey.installed:
     - name: p4
@@ -191,6 +201,14 @@ nxlog:
 processhacker:
   chocolatey.installed:
     - name: processhacker
+
+hwmonitor:
+  chocolatey.installed:
+    - name: hwmonitor
+
+gyazo:
+  chocolatey.installed:
+    - name: gyazo
 
 {% endif %} # !SaltedChocolatey
 
